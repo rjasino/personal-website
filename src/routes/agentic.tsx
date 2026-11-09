@@ -1,5 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 
+import { AsdLayers } from '@/components/asd-layers'
+import { TeachingItems } from '@/components/teaching-items'
 import { pageMetadata } from '@/data/resume'
 
 export const Route = createFileRoute('/agentic')({
@@ -20,9 +22,17 @@ export const Route = createFileRoute('/agentic')({
 
 function AgenticPage() {
   return (
-    <section className="route-stub" aria-labelledby="page-title">
-      <p className="eyebrow">03 / AI &amp; TEACHING</p>
-      <h1 id="page-title">Agentic Systems Design.</h1>
-    </section>
+    <div className="agentic-page">
+      <header className="page-intro">
+        <p className="eyebrow">03 / AI &amp; TEACHING</p>
+        <h1 id="page-title">Agentic Systems Design.</h1>
+        <p>
+          ASD moves work from a human-executed map to a specified contract, then
+          to an agent-executed process: AWD → SDD → APA.
+        </p>
+      </header>
+      <AsdLayers />
+      <TeachingItems />
+    </div>
   )
 }

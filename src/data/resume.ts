@@ -376,36 +376,67 @@ export const aiAgenticEngineering = {
   ],
 }
 
-export interface AsdPillar {
+export interface AsdLayer {
+  id: 'awd' | 'sdd' | 'apa'
+  abbreviation: string
   name: string
-  description?: string
-  requiresOwnerApproval?: boolean
+  description: string
+  coreAct: string
+  artifact: string
+  humanRole: string
+  failureMode: string
+  maturitySignal: string
+  keyPrinciple: string
 }
 
 export const asdFramework = {
   name: 'Agentic Systems Design (ASD)',
-  pillars: [
+  layers: [
     {
+      id: 'awd',
+      abbreviation: 'AWD',
       name: 'Agentic Workflow Design',
       description:
-        'Structuring how humans and AI agents split, sequence, and review work across a delivery pipeline.',
+        'Decompose human work into discrete, named, sequenced steps that agents can understand and traverse, with triggers, transitions, branching logic, handoffs, and terminal states.',
+      coreAct: 'Translate human tasks into an agent-readable flow.',
+      artifact: 'Flow map / task graph.',
+      humanRole: 'Designer — the human architects the map.',
+      failureMode: 'Gaps in task coverage (steps assumed, not defined).',
+      maturitySignal: 'All steps in the workflow are named and sequenced.',
+      keyPrinciple:
+        'The workflow exists independent of who executes it — human or machine.',
     },
     {
+      id: 'sdd',
+      abbreviation: 'SDD',
       name: 'Spec-Driven Development',
       description:
-        'Specs as the source of truth: agents implement against written requirements, not ad hoc prompts.',
+        'Express each workflow step as a formal behavioral contract defining inputs, outputs, constraints, acceptance criteria, and rejection conditions, making agent execution verifiable.',
+      coreAct: 'Contract each step for correctness and verifiability.',
+      artifact: 'Spec / contract document.',
+      humanRole: 'Specifier and approver — the human defines what correct means.',
+      failureMode: 'Ambiguous contracts (steps defined but not bounded).',
+      maturitySignal:
+        'All steps have bounded inputs, outputs, and acceptance criteria.',
+      keyPrinciple:
+        'The spec is the authority against which what gets built is judged.',
     },
     {
+      id: 'apa',
+      abbreviation: 'APA',
       name: 'Agentic Process Automation',
-      requiresOwnerApproval: true,
+      description:
+        'An agent fulfills a spec-governed workflow end-to-end, handles ambiguity, makes decisions, and self-corrects only within specification boundaries. The human provides inputs and validates outputs at the edges.',
+      coreAct: 'Execute the contracted workflow, with the human at the edges only.',
+      artifact: 'Running agent pipeline.',
+      humanRole: 'Input provider and output validator — the human stays at the edges.',
+      failureMode: 'Unchecked agent drift (execution diverges from the spec).',
+      maturitySignal:
+        'All steps are executed without human intervention.',
+      keyPrinciple:
+        'The spec is the leash; the workflow is the track; the agent is the runner.',
     },
-    {
-      name: 'Harness Engineering',
-      requiresOwnerApproval: true,
-    },
-  ] satisfies AsdPillar[],
-  approvalDependency:
-    'Owner-approved descriptions for pillars 3 and 4 are required before completing the AI & Teaching story or production release.',
+  ] satisfies AsdLayer[],
 }
 
 export type TeachingItemKind = 'instructor' | 'training' | 'channel' | 'certificate'

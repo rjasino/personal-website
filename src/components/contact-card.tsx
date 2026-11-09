@@ -36,7 +36,13 @@ export function ContactCard({ method }: ContactCardProps) {
         >
           <span className="contact-value">{method.value}</span>
         </a>
-        <p aria-live="polite" className="copy-feedback" data-copy-status="" role="status" />
+        <p
+          aria-live="polite"
+          className="copy-feedback"
+          data-copy-status=""
+          role="status"
+          suppressHydrationWarning
+        />
       </div>
       <button
         aria-label={`Copy ${method.label}`}

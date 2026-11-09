@@ -36,13 +36,13 @@ export function HomeHighlights() {
             A framework created to formalize how software gets delivered with AI
             agents, applied to engineering work and teaching.
           </p>
-          <ul className="pillar-preview-list">
-            {asdFramework.pillars.slice(0, 2).map((pillar, index) => (
-              <li key={pillar.name}>
-                <span className="pillar-number">0{index + 1}</span>
-                <span>{pillar.name}</span>
-              </li>
-            ))}
+            <ul className="asd-layer-preview-list">
+              {asdFramework.layers.map((layer) => (
+                <li key={layer.id}>
+                  <span className="asd-layer-number">{layer.abbreviation}</span>
+                  <span>{layer.name}</span>
+                </li>
+              ))}
           </ul>
           <Link className="text-link" to="/agentic">
             Explore the framework <ArrowUpRight aria-hidden="true" />

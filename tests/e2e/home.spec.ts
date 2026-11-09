@@ -23,6 +23,11 @@ test.describe('home page', () => {
     }
 
     await expect(main.getByRole('heading', { name: 'Agentic Systems Design (ASD)' })).toBeVisible()
+    const asdPreviewLayers = main.locator('.asd-layer-preview-list li')
+    await expect(asdPreviewLayers).toHaveCount(3)
+    await expect(asdPreviewLayers.nth(0)).toContainText('Agentic Workflow Design')
+    await expect(asdPreviewLayers.nth(1)).toContainText('Spec-Driven Development')
+    await expect(asdPreviewLayers.nth(2)).toContainText('Agentic Process Automation')
     const currentRoles = main.getByTestId('current-role')
     await expect(currentRoles).toHaveCount(2)
     await expect(currentRoles.nth(0)).toContainText('Senior Full Stack Developer')

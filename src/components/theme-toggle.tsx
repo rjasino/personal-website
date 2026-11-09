@@ -7,6 +7,7 @@ export function ThemeToggle() {
       aria-pressed={false}
       className="theme-toggle"
       data-theme-toggle=""
+      suppressHydrationWarning
       type="button"
     >
       <Sun aria-hidden="true" className="theme-icon-dark" />
