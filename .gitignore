@@ -1,0 +1,30 @@
+# Dependencies and generated output
+node_modules/
+dist/
+build/
+dist-ssr/
+.tanstack/
+.output/
+.nitro/
+.vinxi/
+coverage/
+playwright-report/
+test-results/
+
+# Local environment and logs
+.env*
+!.env.example
+*.log
+*.log.*
+*.tmp
+*.swp
+*.local
+
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Tool-generated files
+__unconfig*
