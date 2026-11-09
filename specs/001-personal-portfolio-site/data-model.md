@@ -53,9 +53,15 @@ Represents the framework preview and its full explanation on the AI & Teaching p
 | Field | Meaning | Validation |
 |---|---|---|
 | `name` | Framework name | Use the owner-approved name and expansion, if any |
-| `pillars` | Pillar labels and explanations | Exactly four. The screenshots provide the first two names and explanations; the résumé supplies the names of all four. The owner must approve explanations for pillars 3 and 4 before publication; do not infer framework claims |
+| `layers` | Ordered ASD layer names, abbreviations, and explanations | Exactly three, in order: Agentic Workflow Design (AWD), Spec-Driven Development (SDD), and Agentic Process Automation (APA). Use the supplied ASD framework reference as the source; do not add a fourth layer or list Harness Engineering as part of ASD |
 
-The framework is explained on-site; no external ASD explanation link is included.
+The framework is explained on-site as the AWD → SDD → APA pipeline; no external ASD explanation link is included.
+
+The source-grounded layer descriptions are:
+
+1. **AWD — Agentic Workflow Design**: Decompose human work into a named, sequenced agent-readable flow with triggers, transitions, branching, handoffs, and terminal states. Its artifact is a flow map or task graph; the human designs the map.
+2. **SDD — Spec-Driven Development**: Express each workflow step as a behavioral contract defining inputs, outputs, constraints, acceptance criteria, and rejection conditions. The human specifies and approves what counts as correct.
+3. **APA — Agentic Process Automation**: Have an agent execute the spec-governed workflow end-to-end, making decisions and self-correcting only within the specification's boundaries. The human provides inputs and validates outputs.
 
 ### Teaching and Learning Item
 
@@ -98,7 +104,7 @@ Represents page-specific browser and social-preview content.
 ## Relationships and derived views
 
 - One **Profile** owns many **Experience Roles**, **Skill Categories**, **Teaching and Learning Items**, and **Contact Methods**.
-- The **ASD Framework** is referenced by the Profile's highlights and has exactly four **Pillars**.
+- The **ASD Framework** is referenced by the Profile's highlights and has exactly three ordered **Layers** (AWD → SDD → APA).
 - Each **Experience Role** belongs to the timeline; the home page previews the two current roles in résumé order, and the timeline groups 2010–2012 roles.
 - **Skills** are grouped by their required category; indicators use only explicitly sourced experience labels and do not alter source values.
 - Each of the five routes has one **Page Metadata** record.
@@ -119,7 +125,7 @@ The model intentionally has no phone number, résumé-download asset, education 
 - **AI & Agentic Engineering**: Claude Code with custom commands/rules/MCP; OpenCode; GitHub Copilot; ChatGPT; Gemini; NotebookLM; ASD; repository-as-memory; GitHub Spec Kit; OpenSpec; BMad; multi-provider Claude/Gemini/DeepSeek routing; context-window management; AI-assisted GitHub Actions/Docker CI/CD.
 - **Public contact display/copy values**: `rjasino@live.com`; `linkedin.com/in/rjasino`; `github.com/rjasino`; `@AgenticDeveloperPH2`. Link to `mailto:rjasino@live.com`, `https://www.linkedin.com/in/rjasino/`, `https://github.com/rjasino`, and `https://www.youtube.com/@AgenticDeveloperPH2` respectively.
 
-Preserve the source's plus signs and year ranges. The résumé explicitly omits numeric durations for ACID, GitHub Actions, and the Practices entries; render those without a years bar unless the owner supplies verified values. The first two ASD descriptions visible in `docs/4.PNG` are: **Agentic Workflow Design**—structuring how humans and AI agents split, sequence, and review work across a delivery pipeline; **Spec-Driven Development**—specs as the source of truth, with agents implementing written requirements rather than ad hoc prompts. Pillars 3 and 4 currently have verified names only.
+Preserve the source's plus signs and year ranges. The résumé explicitly omits numeric durations for ACID, GitHub Actions, and the Practices entries; render those without a years bar unless the owner supplies verified values. For ASD, use `docs/ASD-Framework-Summary.docx.pdf` as the authority. It defines exactly three layers—AWD, SDD, and APA—and their descriptions above. Do not include Harness Engineering as a fourth layer or imply a fourth ASD layer.
 
 ### Career achievement source notes
 

@@ -46,6 +46,13 @@ test.describe('home page', () => {
   test('provides the shared navigation, theme control, footer, and persists the selected theme', async ({
     page,
   }) => {
+    const hydrationErrors: string[] = []
+    page.on('console', (message) => {
+      if (message.type() === 'error' && /hydrated|did not match/i.test(message.text())) {
+        hydrationErrors.push(message.text())
+      }
+    })
+
     await page.goto('/')
 
     const navigation = page.getByRole('navigation', { name: 'Main navigation' })
@@ -58,6 +65,28 @@ test.describe('home page', () => {
     await navigation.getByRole('link', { name: 'Experience' }).click()
     await expect(page).toHaveURL(/\/experience$/)
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
+    expect(hydrationErrors).toEqual([])
+  })
+
+  test('hydrates without attribute warnings when a saved light theme is applied before React', async ({
+    page,
+  }) => {
+    const hydrationErrors: string[] = []
+    page.on('console', (message) => {
+      if (message.type() === 'error' && /hydrated|did not match/i.test(message.text())) {
+        hydrationErrors.push(message.text())
+      }
+    })
+    await page.addInitScript(() => window.localStorage.setItem('portfolio-theme', 'light'))
+
+    await page.goto('/')
+
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light')
+    await expect(page.getByRole('button', { name: 'Toggle dark and light appearance' })).toHaveAttribute(
+      'aria-pressed',
+      'true',
+    )
+    expect(hydrationErrors).toEqual([])
   })
 
   test('respects reduced motion and excludes private or unsupported profile content', async ({

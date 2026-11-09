@@ -96,8 +96,18 @@ Use Vitest and React Testing Library for focused interaction tests, and Playwrig
 - [MDN Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
 - [MDN progressbar role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/progressbar_role)
 
+## 5. ASD framework content and scope
+
+**Decision**: Model Agentic Systems Design (ASD) as exactly three ordered layers: Agentic Workflow Design (AWD) → Spec-Driven Development (SDD) → Agentic Process Automation (APA). Use the definitions, artifacts, human roles, and constraints in `docs/ASD-Framework-Summary.docx.pdf`. Do not present Harness Engineering as an ASD layer or include a fourth layer.
+
+**Rationale**: The supplied framework reference defines ASD as a three-layer pipeline and explicitly presents AWD, SDD, and APA as those layers. The user confirmed that this supported document is authoritative and that the existing four-layer scope must be corrected. The previous four-pillar requirement and the Harness Engineering entry conflict with this source and are superseded. ASD's progression is load-bearing: map the work (AWD), contract the work (SDD), then automate the contracted workflow (APA).
+
+**Alternatives considered**: Retaining four layers or treating Harness Engineering as the fourth was rejected because the framework reference does not identify it as part of ASD. Reducing ASD to only the first two layers was rejected because the source defines APA as the third layer. No fourth layer is inferred.
+
+**Source**: `docs/ASD-Framework-Summary.docx.pdf` (four-page framework reference supplied by the owner).
+
 ## Content dependency
 
-The résumé supplies the verified identity, summary, location, career history, skill categories and many durations, AI/agentic tools and methods, teaching, certificates, email, and LinkedIn/GitHub destinations. The screenshots add visual guidance and show a fourth YouTube contact card; include the verified channel `https://www.youtube.com/@AgenticDeveloperPH2` as an additional card while retaining email, LinkedIn, and GitHub as the required core contacts. Use résumé-provided durations only; some items (including ACID, GitHub Actions, and Practices) have no numeric duration and must not receive invented bars. Screenshot 4 gives text for ASD pillars 1 and 2 and only labels for pillars 3 and 4; the missing two explanations need owner-approved copy before publication. These are narrow content-validation checks, not architecture unknowns.
+The résumé supplies the verified identity, summary, location, career history, skill categories and many durations, AI/agentic tools and methods, teaching, certificates, email, and LinkedIn/GitHub destinations. The screenshots add visual guidance and show a fourth YouTube contact card; include the verified channel `https://www.youtube.com/@AgenticDeveloperPH2` as an additional card while retaining email, LinkedIn, and GitHub as the required core contacts. Use résumé-provided durations only; some items (including ACID, GitHub Actions, and Practices) have no numeric duration and must not receive invented bars. The supported ASD reference defines exactly three layers (AWD → SDD → APA); do not add Harness Engineering or another fourth layer.
 
-**Source material**: `docs/RJA_Resume_20261013.pdf` is authoritative for factual profile content; `docs/1.PNG`–`docs/5.PNG` are authoritative only for the requested visual treatment and visible page composition. Keep the deliberately omitted phone number, résumé download, education, and unrelated personal details out of the portfolio.
+**Source material**: `docs/RJA_Resume_20261013.pdf` is authoritative for factual profile content; `docs/ASD-Framework-Summary.docx.pdf` is authoritative for ASD; `docs/1.PNG`–`docs/5.PNG` are authoritative only for the requested visual treatment and visible page composition. Keep the deliberately omitted phone number, résumé download, education, and unrelated personal details out of the portfolio.

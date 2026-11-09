@@ -1,6 +1,6 @@
 # Validation Status
 
-**Status:** Implementation validation is passing for the completed stories, but the portfolio is **not release-ready**. User Story 3 and production publishing remain on hold by owner direction because approved descriptions for ASD pillars 3 and 4 are not available. No public deployment has been attempted.
+**Status:** Automated validation is passing for the implemented stories, but the portfolio is **not release-ready**. The owner has confirmed that ASD has exactly three layers—AWD → SDD → APA—and that Harness Engineering is not an ASD layer. The planning artifacts now reflect that source. The application data and `/agentic` route still require implementation updates before the content review can pass. No public deployment has been attempted.
 
 ## Automated checks
 
@@ -8,18 +8,18 @@
 |---|---|---|
 | `bun run check` | PASS | Strict TypeScript check completed without errors. |
 | `bun run test` | PASS (no unit tests discovered) | The current acceptance coverage is in Playwright. |
-| `bun run test:e2e` | PASS | 8 tests passed for home, experience, skills, contact, and static output. |
+| `bun run test:e2e` | PASS | 9 tests passed for home, experience, skills, contact, static output, and saved-theme hydration. |
 | Root static build (`PAGES_BASE_PATH=/`) | PASS | Five route entries and base-aware `404.html` verified under `dist/client/`. |
-| Project static build (`PAGES_BASE_PATH=/portfolio`) | PASS | Five route entries, prefixed assets/navigation, and `/portfolio/` 404 home link verified. |
+| Project static build (`PAGES_BASE_PATH=/agentic-developer-ph-web`) | PASS | Five route entries, prefixed asset URLs, and base-aware 404 home link verified. |
 | Workflow review | PASS | Build-only workflow; pinned action SHAs; `contents: read` and `pages: read`; no deploy job. |
 
 The automated checks do not constitute content approval, a live Pages deployment, or the required usability study.
 
-## Owner content gate
+## ASD scope update
 
-- **Blocked:** owner-approved descriptions for **Agentic Process Automation** and **Harness Engineering** are not present in the supplied brief or résumé.
-- The owner chose to keep User Story 3 on hold. No placeholder or inferred descriptions have been added.
-- T027–T030 and the production deployment task T034 remain incomplete.
+- The owner confirmed on 2026-11-09 that the supported ASD reference defines exactly three layers: **Agentic Workflow Design (AWD)**, **Spec-Driven Development (SDD)**, and **Agentic Process Automation (APA)**.
+- Harness Engineering is excluded from ASD; no fourth layer should be displayed or tested.
+- T007 was reopened to update the canonical application data. T027–T030 remain incomplete pending implementation and acceptance coverage for the three-layer model.
 
 ## Usability success criteria
 

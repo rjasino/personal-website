@@ -14,7 +14,7 @@ Your resume shows two sides: 16+ years of serious enterprise work (.NET, Azure, 
 1. **Home (/)**: name, title line, short summary, location, and buttons for LinkedIn, GitHub and Email. A stat strip shows 16+ years, 4 industries, 60 students per term and the ASD framework. Below that are a featured preview of the ASD framework and the two most recent roles.
 2. **Experience (/experience)**: vertical timeline of all roles, newest first. Each role shows its dates, company, tech stack as chips and key achievements. Roles from 2010–2012 are grouped together and collapsed.
 3. **Skills (/skills)**: skills grouped by category (Languages, Backend, Front-End, Databases, Cloud & DevOps, Testing, Practices). Each skill has a small bar showing years of experience. A separate "AI & Agentic Engineering" panel covers tools, methods and model strategy.
-4. **AI & Teaching (/agentic)**: the ASD framework explained in its four pillars (described here only, with no external link), the Agentic Developer PH YouTube channel (https://www.youtube.com/@AgenticDeveloperPH2), the CIIT instructor role, the AFP training and the OpenAI Academy certificates.
+4. **AI & Teaching (/agentic)**: Agentic Systems Design explained as the three-layer AWD → SDD → APA pipeline, using the supported framework reference (`docs/ASD-Framework-Summary.docx.pdf`) and no external ASD explanation link; the Agentic Developer PH YouTube channel (https://www.youtube.com/@AgenticDeveloperPH2), the CIIT instructor role, the AFP training and the OpenAI Academy certificates. Do not present Harness Engineering as an ASD layer.
 5. **Contact (/contact)**: email, LinkedIn and GitHub as large copyable cards.
 
 Every page has a shared header (links to all pages, theme toggle) and a footer (social links).

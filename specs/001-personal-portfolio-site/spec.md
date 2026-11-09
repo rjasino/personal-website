@@ -1,12 +1,12 @@
 # Feature Specification: Roberto Asino Personal Portfolio Website
 
-**Feature Branch**: Not created (no pre-specify hook configured)
+**Feature Branch**: `001-personal-portfolio-site` (working Git branch remains `main`)
 
 **Created**: 2026-11-09
 
 **Status**: Draft
 
-**Input**: User description and references: `docs/personal-website-roberto-jacinto-asino-2026-11-09.md`, factual résumé `docs/RJA_Resume_20261013.pdf`, and visual references `docs/1.PNG`–`docs/5.PNG`.
+**Input**: User description and references: `docs/personal-website-roberto-jacinto-asino-2026-11-09.md`, ASD framework reference `docs/ASD-Framework-Summary.docx.pdf`, factual résumé `docs/RJA_Resume_20261013.pdf`, and visual references `docs/1.PNG`–`docs/5.PNG`.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -53,11 +53,11 @@ A student, educator, or technology enthusiast learns about Roberto's ASD framewo
 
 **Why this priority**: This page explains Roberto's newer agentic AI focus and connects it to his teaching and training work.
 
-**Independent Test**: Open the AI & Teaching page and verify that the four ASD pillars are explained on the page, the requested teaching and credential items are present, and the channel link opens the specified destination.
+**Independent Test**: Open the AI & Teaching page and verify that all three ASD layers—AWD → SDD → APA—are explained in order on the page, the requested teaching and credential items are present, and the channel link opens the specified destination.
 
 **Acceptance Scenarios**:
 
-1. **Given** a visitor opens the AI & Teaching page, **When** they read the ASD section, **Then** they can understand all four owner-approved pillars from the page itself without needing an external framework link; the page MUST NOT be published with placeholder or invented pillar descriptions.
+1. **Given** a visitor opens the AI & Teaching page, **When** they read the ASD section, **Then** they can understand Agentic Workflow Design (AWD), Spec-Driven Development (SDD), and Agentic Process Automation (APA) in that order from the page itself without needing an external framework link. The page MUST NOT add a fourth ASD layer or present Harness Engineering as part of ASD.
 2. **Given** a visitor reviews the teaching and learning section, **When** they scan its content, **Then** they can find the Agentic Developer PH channel, CIIT instructor role, AFP training, and OpenAI Academy certificates.
 3. **Given** a visitor selects the YouTube channel reference, **When** the link opens, **Then** it leads to `https://www.youtube.com/@AgenticDeveloperPH2`.
 
@@ -108,12 +108,12 @@ Roberto, as the site owner, publishes the portfolio publicly without a hosting f
 - **FR-002**: Every page MUST include shared navigation to all five pages, a light/dark theme control, and a footer with social links.
 - **FR-003**: The home page MUST present Roberto's verified name, professional title, short summary, location, and actions for LinkedIn, GitHub, and email.
 - **FR-004**: The home page MUST display the stated highlights of 16+ years, 4 industries, 60 students per term, and the ASD framework, plus a featured ASD preview and the two current roles in supplied résumé order.
-- **FR-005**: The visual presentation MUST use a dark graphite base, warm off-white text, amber `#F5A524` highlights, fine grid details, and compact technical labels. Typography MUST use Space Grotesk for headings, Inter Tight for body text, and JetBrains Mono for labels, dates, and technology tags.
+- **FR-005**: The visual presentation MUST use a dark graphite base, warm off-white text, amber `#F5A524` highlights, fine grid details, and compact technical labels. Typography MUST use Space Grotesk for headings, Inter Tight for body text, and JetBrains Mono for labels, dates, and technology tags. The palette and font families MUST be defined in shared design tokens/styles. Normal text MUST meet 4.5:1 contrast and large text MUST meet 3:1 in both themes; the grid MUST remain decorative and MUST NOT reduce text legibility.
 - **FR-006**: The opening section MUST include the terminal-style line `> building agentic systems_`. Scroll entrances MUST be gentle and MUST respect reduced-motion preferences.
 - **FR-007**: The default appearance MUST be dark. Visitors MUST be able to switch between light and dark appearances, and the selected appearance MUST remain consistent while navigating the site.
 - **FR-008**: The experience page MUST show all verified roles with dates, company, technology tags, and key achievements. Concurrent roles marked Present MUST retain the supplied résumé display order; completed roles MUST appear newest first. Roles from 2010–2012 MUST be grouped together and initially collapsed, with a way to expand them.
 - **FR-009**: The skills page MUST group skills under Languages, Backend, Front-End, Databases, Cloud & DevOps, Testing, and Practices. Each skill with a résumé-verified duration MUST show a visual indicator and the source duration; skills without a verified duration MUST remain text-only unless the owner supplies one. Durations MUST NOT be inferred. The page MUST include a separate AI & Agentic Engineering panel for tools, methods, and model strategy.
-- **FR-010**: The AI & Teaching page MUST explain the four owner-approved ASD pillars on the page without linking to an external ASD explanation, and MUST include the Agentic Developer PH channel, CIIT instructor role, AFP training, and OpenAI Academy certificates. Pillar copy not present in verified source material MUST be supplied and approved by the owner before publication; no placeholder or inferred explanations are allowed.
+- **FR-010**: The AI & Teaching page MUST explain the three ASD layers—Agentic Workflow Design (AWD), Spec-Driven Development (SDD), and Agentic Process Automation (APA)—in pipeline order, using the supported framework reference, without linking to an external ASD explanation. It MUST NOT present Harness Engineering as an ASD layer or add a fourth layer. The page MUST also include the Agentic Developer PH channel, CIIT instructor role, AFP training, and OpenAI Academy certificates.
 - **FR-011**: The Contact page MUST show prominent, individually copyable email, LinkedIn, and GitHub cards, plus a copyable YouTube social card displaying `@AgenticDeveloperPH2` and linking to `https://www.youtube.com/@AgenticDeveloperPH2`. Successful copying MUST be confirmed; if one-click copying is unavailable, displayed values MUST remain selectable.
 - **FR-012**: Each page MUST have its own page-appropriate browser title, description, and social-sharing preview information.
 - **FR-013**: Each named page MUST load when opened directly at the site address, whether hosted at a domain root or under a project subpath. Internal links MUST resolve correctly in either configuration.
@@ -126,7 +126,7 @@ Roberto, as the site owner, publishes the portfolio publicly without a hosting f
 - **Profile**: Roberto's verified name, professional title, summary, location, career highlights, and public profile links.
 - **Role**: A position or engagement with dates, organization, technology tags, and achievements; roles include a special grouping for 2010–2012.
 - **Skill**: A capability, its category, and an optional résumé-verified duration; durationless skills are not assigned inferred years.
-- **ASD framework**: The framework name and its four pillars, with a concise explanation of each.
+- **ASD framework**: Agentic Systems Design and its three ordered layers (AWD → SDD → APA), with source-grounded explanations for each layer.
 - **Teaching and learning item**: A teaching role, training activity, channel, or certificate to be presented on the AI & Teaching page.
 - **Contact method**: A verified email or social profile value with a visitor-facing label and copy action; the four cards are email, LinkedIn, GitHub, and YouTube.
 
@@ -143,8 +143,8 @@ Roberto, as the site owner, publishes the portfolio publicly without a hosting f
 ## Assumptions
 
 - The intended audience includes prospective employers, collaborators, students, and people interested in agentic AI.
-- The supplied brief is authoritative for the site's content and presentation; the résumé is authoritative for factual profile content, and screenshots are visual guidance. Exact role names, dates, achievements, skill experience, profile URLs, email address, and ASD pillar details must be taken from verified source or owner-provided material; missing facts will not be invented.
-- The four ASD pillars are to be explained on the site; no external ASD framework destination is required.
+- The résumé is authoritative for factual profile content, the screenshots are visual guidance, and `docs/ASD-Framework-Summary.docx.pdf` is authoritative for ASD. ASD has three ordered layers: AWD → SDD → APA. Do not include Harness Engineering as an ASD layer or invent a fourth layer.
+- The three ASD layers are explained on the site; no external ASD framework destination is required.
 - Public hosting is expected to use GitHub Pages for a public repository, as specified in the brief. The website has no feature that requires server-side processing.
 - The site must support both a domain-root address and a project-subpath address, with the deployment owner selecting the appropriate address.
 - The light/dark choice is expected to persist during navigation within a visit; long-term preference persistence is not required by this specification.

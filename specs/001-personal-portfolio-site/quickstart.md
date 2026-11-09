@@ -1,6 +1,6 @@
 # Quickstart and Validation Guide
 
-This guide describes the expected commands after the app is scaffolded. At planning time the repository has no package manifest, dependency lockfile, Vite configuration, or app source, so these scripts must be added during implementation.
+This guide validates the existing static portfolio implementation. The repository includes a package manifest, Bun lockfile, Vite configuration, application source, and the scripts below.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ Also verify the supplied visual references at desktop scale, then inspect narrow
 
 ## Validate résumé-derived content
 
-Review `src/data/resume.ts` against `docs/RJA_Resume_20261013.pdf` and the presentation-only references in `docs/1.PNG`–`docs/5.PNG`. Confirm all eight career entries are present, the 2010–2012 roles are grouped and initially collapsed, the 16+ years / 4 industries / 60 students highlights are correct, and listed skill durations retain their source precision. Do not add bars for skills with no duration in the résumé. Verify email, LinkedIn, GitHub, and the additional YouTube card/channel destination. Confirm the phone number, résumé download, education, and unrelated personal details remain absent. Pillar 3 and 4 descriptions require owner approval before public release.
+Review `src/data/resume.ts` against `docs/RJA_Resume_20261013.pdf`, the ASD reference `docs/ASD-Framework-Summary.docx.pdf`, and the presentation-only references in `docs/1.PNG`–`docs/5.PNG`. Confirm all eight career entries are present, the 2010–2012 roles are grouped and initially collapsed, the 16+ years / 4 industries / 60 students highlights are correct, and listed skill durations retain their source precision. Do not add bars for skills with no duration in the résumé. Verify email, LinkedIn, GitHub, and the additional YouTube card/channel destination. Confirm the phone number, résumé download, education, and unrelated personal details remain absent. Verify ASD is presented as exactly three ordered layers—AWD → SDD → APA—and that Harness Engineering is not shown as an ASD layer or fourth stage.
 
 ## GitHub Pages deployment validation
 

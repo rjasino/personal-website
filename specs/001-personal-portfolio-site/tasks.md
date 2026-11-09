@@ -37,12 +37,12 @@ description: "Implementation task list for Roberto Asino Personal Portfolio Webs
 - [X] T004 Define and populate the Profile record in `src/data/resume.ts` using `docs/personal-website-roberto-jacinto-asino-2026-11-09.md` and `docs/RJA_Resume_20261013.pdf`; preserve these validations verbatim: name “Required; use the owner's approved spelling”; title “Required before publication; do not infer an unverified title”; summary “Required; consistent with verified experience”; location “Required by the home page; do not add personal details beyond the approved value”; highlights “Match the supplied values: 16+, 4, 60 per term, and ASD.”
 - [X] T005 Add all verified Experience Role records from `docs/RJA_Resume_20261013.pdf` in `src/data/resume.ts`; preserve “Unique within the role collection”; “Verified source only” for title and company; month/year source precision; “Verified technologies; no duplicate tags within a role”; “Use sourced facts; do not invent metrics”; the supplied résumé order for concurrent Present roles; newest-first ordering for completed roles; and the initially collapsed 2010–2012 group.
 - [X] T006 Add Skill Category and Skill records sourced from `docs/RJA_Resume_20261013.pdf` in `src/data/resume.ts`; use the seven required categories (Languages, Backend, Front-End, Databases, Cloud & DevOps, Testing, Practices), require a non-empty skill name, preserve source duration labels, and leave duration absent when the résumé does not verify one; include verified AI & Agentic Engineering tools, methods, and model strategy. Do not infer skill durations.
-- [X] T007 Add the source-verified ASD Framework fields and Teaching and Learning Items from the supplied brief and `docs/RJA_Resume_20261013.pdf` in `src/data/resume.ts`; preserve the owner-approved name, four pillar names, source-provided descriptions, supported item kinds, titles, organizations, and URLs. The supplied materials explain only pillars 1 and 2; leave descriptions 3 and 4 absent (not placeholder text), record the owner-approval dependency, and do not infer copy. This missing copy gates the AI & Teaching story and production release, but does not block implementation of unrelated stories.
+- [ ] T007 Add the source-verified ASD Framework fields and Teaching and Learning Items from the supplied ASD reference, brief, and `docs/RJA_Resume_20261013.pdf` in `src/data/resume.ts`; preserve the owner-approved framework name, exactly three ordered layers (AWD, SDD, APA) and their source-provided descriptions, supported item kinds, titles, organizations, and URLs. Do not add Harness Engineering as an ASD layer or infer a fourth layer.
 - [X] T008 Add Contact Method and Page Metadata records in `src/data/resume.ts` using verified values from `docs/RJA_Resume_20261013.pdf`, the supplied brief, and the screenshot references. Include four copyable contact/social records: email, LinkedIn, GitHub, and YouTube (display/copy `@AgenticDeveloperPH2`, link to its verified HTTPS URL); retain verified hrefs, accessible labels, and no placeholder values. Add five unique page metadata records with distinct titles, relevant descriptions, and available verified social-preview information.
 - [X] T009 [P] Define the requested graphite/off-white/amber palette as OKLCH tokens, Space Grotesk/Inter Tight/JetBrains Mono font families with fallbacks, responsive grid details, and reduced-motion rules in `src/styles.css`; keep the amber signal color anchored to `#F5A524` and verify text contrast in both themes.
 - [X] T010 Compose the shared document shell, font links, site header/footer, five-route navigation, social links, dark-default theme control, and pre-hydration theme initialization in `src/routes/__root.tsx`, `src/components/site-header.tsx`, `src/components/site-footer.tsx`, and `src/components/theme-toggle.tsx`; ensure the selected theme remains consistent during route navigation and controls are keyboard accessible.
 
-**Checkpoint**: All route paths, source-verified shared data, theme, navigation, and document shell are available. Owner-approved ASD descriptions for pillars 3 and 4 remain a specific prerequisite for completing User Story 3 and enabling production deployment, not a blocker for unrelated stories.
+**Checkpoint**: All route paths, source-verified shared data, theme, navigation, and document shell are available. The ASD reference supplies the three layer descriptions; the AI & Teaching story can proceed with AWD → SDD → APA and must not include Harness Engineering as a fourth layer.
 
 ---
 
@@ -130,15 +130,15 @@ description: "Implementation task list for Roberto Asino Personal Portfolio Webs
 
 **Goal**: Explain the ASD framework and present Roberto's teaching, training, channel, and certificate information.
 
-**Independent Test**: Open `/agentic`; understand all four pillars from the page itself, find CIIT/AFP/OpenAI Academy items, and follow the Agentic Developer PH link to the specified YouTube URL.
+**Independent Test**: Open `/agentic`; understand all three ASD layers in AWD → SDD → APA order from the page itself, find CIIT/AFP/OpenAI Academy items, and follow the Agentic Developer PH link to the specified YouTube URL.
 
 ### Tests for User Story 3
 
-- [ ] T027 [US3] Obtain and record owner-approved descriptions for ASD pillars 3 and 4 before completing the four-pillar acceptance coverage in `tests/e2e/agentic.spec.ts`; test all four on-page explanations, CIIT instructor role, AFP training, OpenAI Academy certificates, and the exact YouTube channel URL, and confirm relevant assertions fail before implementation. If the owner copy is unavailable, hold User Story 3 and production deployment without inventing or displaying placeholder text.
+- [ ] T027 [US3] Add Playwright acceptance coverage in `tests/e2e/agentic.spec.ts` for the three ASD layers in order. Verify AWD covers triggers, named/sequenced steps, branching, handoffs, and terminal states; SDD defines inputs, outputs, constraints, acceptance criteria, and rejection conditions; and APA executes the spec-governed workflow with the human at input/output edges and decisions bounded by the spec. Also verify the CIIT instructor role, AFP training, OpenAI Academy certificates, and exact YouTube channel URL. Confirm the relevant assertions fail before implementation; do not test or display a fourth ASD layer.
 
 ### Implementation for User Story 3
 
-- [ ] T028 [P] [US3] Implement the four-pillar explanation in `src/components/asd-pillars.tsx` using only the four verified ASD entries from `src/data/resume.ts`, with no external ASD explanation link.
+- [ ] T028 [P] [US3] Implement the three-layer ASD pipeline in `src/components/asd-layers.tsx` using only the verified AWD, SDD, and APA entries from `src/data/resume.ts`, in that order and with no external ASD explanation link.
 - [ ] T029 [P] [US3] Implement the channel, teaching, training, and certificate presentation in `src/components/teaching-items.tsx`, preserving the exact verified Agentic Developer PH URL from `src/data/resume.ts`.
 - [ ] T030 [US3] Compose `/agentic` in `src/routes/agentic.tsx` from the ASD and teaching components and add its unique title, description, and social-sharing metadata.
 
@@ -150,7 +150,7 @@ description: "Implementation task list for Roberto Asino Personal Portfolio Webs
 
 **Purpose**: Verify the complete portfolio against scope, accessibility, base-path, and deployment requirements.
 
-- [ ] T031 Review `src/data/resume.ts` and all five page route files in `src/routes/` against `specs/001-personal-portfolio-site/spec.md`; confirm every required item is present, every fact and all four ASD pillar descriptions are owner-approved, all five metadata entries are page-specific, and phone/resume-download/education/other personal details/character references are absent.
+- [ ] T031 Review `src/data/resume.ts` and all five page route files in `src/routes/` against `specs/001-personal-portfolio-site/spec.md`; confirm every required item is present, the three ASD layers and descriptions match `docs/ASD-Framework-Summary.docx.pdf` with no Harness Engineering layer, all five metadata entries are page-specific, and phone/resume-download/education/other personal details/character references are absent.
 - [ ] T032 Conduct the success-criteria usability review and record results in `specs/001-personal-portfolio-site/validation.md`: at least 9 of 10 first-time reviewers identify Roberto's focus and reach a detail page within 30 seconds, and at least 9 of 10 copy and paste the correct contact value within 30 seconds; if either target is missed, improve `src/components/home-hero.tsx`, `src/components/home-highlights.tsx`, or `src/components/contact-card.tsx` and repeat.
 - [ ] T033 Run the runnable checks and both base-path builds in `specs/001-personal-portfolio-site/quickstart.md`; verify `dist/client/` contains all five route entries and `404.html`, check direct routes/navigation/theme/reduced motion/contact fallback and the complete approved content, and confirm the artifact is release-ready. This is a pre-deployment gate; do not publish from this task.
 - [ ] T034 Enable the protected production deploy job in `.github/workflows/deploy.yml` only after T031–T033 pass; deploy only from `main` in the `github-pages` environment, grant `pages: write` and `id-token: write` only to the deploy job, pin actions to verified full SHAs, and serialize Pages deployments with `cancel-in-progress: false`. Update `specs/001-personal-portfolio-site/quickstart.md` and verify all five live routes, the not-found page, and a subsequent main-branch update.
@@ -162,8 +162,8 @@ description: "Implementation task list for Roberto Asino Personal Portfolio Webs
 ### Phase Dependencies
 
 - **Setup (Phase 1)**: No feature dependencies; initialize the app and static route skeletons first.
-- **Foundational (Phase 2)**: Depends on Setup and blocks all story implementation. `T004`–`T008` update the same canonical data module and therefore run in order; `T009` can run alongside those data tasks after Setup; `T010` completes the shell after the data and design tokens exist.
-- **User Stories (Phases 3–7)**: Depend on the shared foundation. User Stories 1, 2, and 4 are independently testable after foundation; User Story 3 can proceed once owner-approved copy for all four ASD pillars is available. User Story 5's static-output checks, build-only CI, and 404 can be prepared from route skeletons; its production deploy job is deferred until Phase 8 release checks pass.
+- **Foundational (Phase 2)**: Depends on Setup and blocks remaining story implementation. `T004`–`T008` originally updated the same canonical data module in order. In this revision, T007 is reopened as a targeted correction to ASD records in `src/data/resume.ts`; T008 remains complete because its contact and page-metadata records are unaffected. Complete T007 before T027; rerun T008 only if the shared-data review finds a regression. `T009` can run alongside data tasks because it changes `src/styles.css`; `T010` completes the shell after the data and design tokens exist.
+- **User Stories (Phases 3–7)**: Depend on the shared foundation. User Stories 1, 2, and 4 are independently testable after foundation; User Story 3 uses the three source-defined ASD layers established in T007. User Story 5's static-output checks, build-only CI, and 404 can be prepared from route skeletons; its production deploy job is deferred until Phase 8 release checks pass.
 - **Polish and release (Phase 8)**: Depends on content stories US1–US4 and the build-only static checks from US5. Complete T031–T033 before enabling production deployment and completing US5 in T034.
 
 ### User Story Dependencies
@@ -172,7 +172,7 @@ description: "Implementation task list for Roberto Asino Personal Portfolio Webs
 - **User Story 4 (P1)**: Starts after Foundation; uses the already-complete Contact Method records and does not depend on the home route.
 - **User Story 5 (P1)**: Static-output checks and build-only CI start after Foundation. Production deployment waits for US1–US4 and successful completion of T031–T033.
 - **User Story 2 (P2)**: Starts after Foundation; independent of US1, US3, and US4.
-- **User Story 3 (P2)**: Starts after Foundation and owner approval of missing ASD pillar descriptions in T027; otherwise it remains blocked independently of US1, US2, and US4.
+- **User Story 3 (P2)**: Starts after Foundation; all three ASD layers and descriptions are supplied in the ASD framework reference and recorded in T007. It remains independent of US1, US2, and US4.
 
 ### Within Each User Story
 
@@ -184,7 +184,7 @@ description: "Implementation task list for Roberto Asino Personal Portfolio Webs
 ### Parallel Opportunities
 
 - `T009` can run in parallel with `T004`–`T008` after Setup because it changes `src/styles.css` rather than `src/data/resume.ts`.
-- After Foundation, User Stories 1, 2, 4, and the non-publishing portion of 5 can run in parallel; User Story 3 can be assigned once T027's owner-copy prerequisite is met. Production deployment remains gated by T031–T033.
+- After Foundation, User Stories 1–4 and the non-publishing portion of 5 can run in parallel; User Story 3 uses the three ASD layer records established in T007. Production deployment remains gated by T031–T033.
 - Within US1: `T012` and `T013` are parallel; `T014` follows both.
 - Within US2: `T021` and `T022` can be authored in parallel; after they fail, `T023`/`T024` and then `T025`/`T026` can be implemented in parallel by route.
 - Within US3: `T028` and `T029` are parallel; `T030` follows both.
@@ -252,5 +252,5 @@ After Foundation, contributors can implement US1, US2, US3, US4, and US5 indepen
 
 - Every implementation task uses the required `- [ ] T### [P?] [US#?] ... path` format; setup, foundation, and polish tasks omit story labels.
 - The task list includes acceptance tests because the feature specification provides an independent test for every user story; no unrelated test suites are added.
-- The exact ASD pillar details and owner-specific contact/profile facts must come from verified source material. Do not invent values if a source does not provide them.
+- The ASD layer details and owner-specific contact/profile facts must come from verified source material. Do not invent values if a source does not provide them.
 - [P] indicates separate files and complete prerequisites; tasks touching `src/data/resume.ts` are intentionally sequential.
