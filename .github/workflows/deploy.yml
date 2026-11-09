@@ -1,4 +1,4 @@
-name: Build and test portfolio
+name: Build, test, and deploy portfolio
 
 on:
   push:
@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
   pages: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -61,7 +65,23 @@ jobs:
           test -f dist/client/agentic/index.html
           test -f dist/client/contact/index.html
 
-      - name: Upload static artifact (build only; no deployment)
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
           path: dist/client
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5
