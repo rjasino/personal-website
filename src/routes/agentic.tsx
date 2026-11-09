@@ -22,7 +22,7 @@ export const Route = createFileRoute('/agentic')({
 
 function AgenticPage() {
   return (
-    <div className="agentic-page">
+    <div className="agentic-page motion-enter">
       <header className="page-intro">
         <p className="eyebrow">03 / AI &amp; TEACHING</p>
         <h1 id="page-title">Agentic Systems Design.</h1>

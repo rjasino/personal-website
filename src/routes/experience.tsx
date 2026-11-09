@@ -21,7 +21,7 @@ export const Route = createFileRoute('/experience')({
 
 function ExperiencePage() {
   return (
-    <section aria-labelledby="page-title" className="experience-page">
+      <section aria-labelledby="page-title" className="experience-page motion-enter">
       <div className="page-intro">
         <p className="eyebrow">01 / EXPERIENCE</p>
         <h1 id="page-title">Sixteen years of shipping.</h1>

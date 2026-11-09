@@ -22,7 +22,7 @@ export const Route = createFileRoute('/contact')({
 
 function ContactPage() {
   return (
-    <section aria-labelledby="page-title" className="contact-page">
+    <section aria-labelledby="page-title" className="contact-page motion-enter">
       <div className="page-intro">
         <p className="eyebrow">05 / CONTACT</p>
         <h1 id="page-title">Let’s build something.</h1>

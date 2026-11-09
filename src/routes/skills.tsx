@@ -23,7 +23,7 @@ export const Route = createFileRoute('/skills')({
 
 function SkillsPage() {
   return (
-    <section aria-labelledby="page-title" className="skills-page">
+    <section aria-labelledby="page-title" className="skills-page motion-enter">
       <div className="page-intro">
         <p className="eyebrow">02 / SKILLS</p>
         <h1 id="page-title">The toolkit.</h1>
