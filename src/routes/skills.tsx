@@ -1,6 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { pageMetadata } from '@/data/resume'
+import { AiAgenticPanel } from '@/components/ai-agentic-panel'
+import { SkillCategory } from '@/components/skill-category'
+import { skillCategories } from '@/data/resume'
 
 export const Route = createFileRoute('/skills')({
   head: () => ({
@@ -20,9 +23,18 @@ export const Route = createFileRoute('/skills')({
 
 function SkillsPage() {
   return (
-    <section className="route-stub" aria-labelledby="page-title">
-      <p className="eyebrow">02 / SKILLS</p>
-      <h1 id="page-title">The toolkit.</h1>
+    <section aria-labelledby="page-title" className="skills-page">
+      <div className="page-intro">
+        <p className="eyebrow">02 / SKILLS</p>
+        <h1 id="page-title">The toolkit.</h1>
+        <p>Bars show documented years of experience; unverified durations stay text-only.</p>
+      </div>
+      <div aria-label="Skill categories" className="skill-category-grid">
+        {skillCategories.map((category) => (
+          <SkillCategory category={category} key={category.name} />
+        ))}
+      </div>
+      <AiAgenticPanel />
     </section>
   )
 }

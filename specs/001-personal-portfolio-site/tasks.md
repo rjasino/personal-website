@@ -54,13 +54,13 @@ description: "Implementation task list for Roberto Asino Personal Portfolio Webs
 
 ### Tests for User Story 1
 
-- [ ] T011 [US1] Add Playwright acceptance coverage in `tests/e2e/home.spec.ts` for the home identity and actions, four highlights, featured ASD and the two current roles in supplied résumé order, shared navigation/theme/footer, page metadata, terminal line, reduced-motion behavior, and excluded content; run it against the route stub and confirm the relevant assertions fail before the home implementation.
+- [X] T011 [US1] Add Playwright acceptance coverage in `tests/e2e/home.spec.ts` for the home identity and actions, four highlights, featured ASD and the two current roles in supplied résumé order, shared navigation/theme/footer, page metadata, terminal line, reduced-motion behavior, and excluded content; run it against the route stub and confirm the relevant assertions fail before the home implementation.
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Implement the home hero in `src/components/home-hero.tsx` with verified name, title, summary, location, LinkedIn/GitHub/email actions, and the exact opening line `> building agentic systems_`.
-- [ ] T013 [P] [US1] Implement the home stats and featured content in `src/components/home-highlights.tsx`, showing 16+ years, 4 industries, 60 students per term, the ASD preview, and the two current roles in supplied résumé order from `src/data/resume.ts`.
-- [ ] T014 [US1] Compose the home route from the hero and highlights in `src/routes/index.tsx` and provide its unique title, description, and social-sharing metadata through the route head.
+- [X] T012 [P] [US1] Implement the home hero in `src/components/home-hero.tsx` with verified name, title, summary, location, LinkedIn/GitHub/email actions, and the exact opening line `> building agentic systems_`.
+- [X] T013 [P] [US1] Implement the home stats and featured content in `src/components/home-highlights.tsx`, showing 16+ years, 4 industries, 60 students per term, the ASD preview, and the two current roles in supplied résumé order from `src/data/resume.ts`.
+- [X] T014 [US1] Compose the home route from the hero and highlights in `src/routes/index.tsx` and provide its unique title, description, and social-sharing metadata through the route head.
 
 **Checkpoint**: User Story 1 works independently from the home route and shared foundation; it is the first demonstrable MVP increment.
 
@@ -74,12 +74,12 @@ description: "Implementation task list for Roberto Asino Personal Portfolio Webs
 
 ### Tests for User Story 4
 
-- [ ] T015 [US4] Add Playwright acceptance coverage in `tests/e2e/contact.spec.ts` for the four labelled email, LinkedIn, GitHub, and YouTube cards; verify visible copied values, exact outbound destinations (including the YouTube channel URL), success feedback, and selectable fallback when clipboard access is denied; confirm the relevant assertions fail before implementation.
+- [X] T015 [US4] Add Playwright acceptance coverage in `tests/e2e/contact.spec.ts` for the four labelled email, LinkedIn, GitHub, and YouTube cards; verify visible copied values, exact outbound destinations (including the YouTube channel URL), success feedback, and selectable fallback when clipboard access is denied; confirm the relevant assertions fail before implementation.
 
 ### Implementation for User Story 4
 
-- [ ] T016 [US4] Implement the reusable copyable contact card in `src/components/contact-card.tsx` with a user-initiated copy action, accessible success feedback, verified destination link, and visible/selectable fallback text.
-- [ ] T017 [US4] Implement `/contact` in `src/routes/contact.tsx` using the four verified Contact Method records and `src/components/contact-card.tsx`; the YouTube card displays/copies `@AgenticDeveloperPH2` and links to `https://www.youtube.com/@AgenticDeveloperPH2`. Add unique page title, description, and social-sharing metadata.
+- [X] T016 [US4] Implement the reusable copyable contact card in `src/components/contact-card.tsx` with a user-initiated copy action, accessible success feedback, verified destination link, and visible/selectable fallback text.
+- [X] T017 [US4] Implement `/contact` in `src/routes/contact.tsx` using the four verified Contact Method records and `src/components/contact-card.tsx`; the YouTube card displays/copies `@AgenticDeveloperPH2` and links to `https://www.youtube.com/@AgenticDeveloperPH2`. Add unique page title, description, and social-sharing metadata.
 
 **Checkpoint**: User Story 4 can be demonstrated by itself after the shared foundation, without depending on the experience or AI pages.
 
@@ -93,12 +93,12 @@ description: "Implementation task list for Roberto Asino Personal Portfolio Webs
 
 ### Tests for User Story 5
 
-- [ ] T018 [US5] Add non-publishing static-output acceptance checks in `tests/e2e/static-publishing.spec.ts` for the five prerendered route entries, root and project base-aware asset/navigation URLs, and root-level `404.html`; confirm the checks fail before the static-output implementation and do not invoke a Pages deploy.
+- [X] T018 [US5] Add non-publishing static-output acceptance checks in `tests/e2e/static-publishing.spec.ts` for the five prerendered route entries, root and project base-aware asset/navigation URLs, and root-level `404.html`; confirm the checks fail before the static-output implementation and do not invoke a Pages deploy.
 
 ### Implementation for User Story 5
 
-- [ ] T019 [P] [US5] Create a standalone branded, base-aware not-found document in `public/404.html` that links back to the home route without server-side scripts or rewrites.
-- [ ] T020 [P] [US5] Create build-and-test CI in `.github/workflows/deploy.yml` for pushes to `main` using a supported Node LTS and pinned Bun; pass `actions/configure-pages` `base_path` as `PAGES_BASE_PATH`, run `bun ci`, `bun run check`, `bun run test`, and `bun run test:e2e`, build and upload the client artifact, and verify the output. Give this job only `contents: read` and the `pages: read` permission needed for `base_path`. This early workflow MUST NOT contain or invoke a production Pages deploy job; document the build-only stage in `specs/001-personal-portfolio-site/quickstart.md`.
+- [X] T019 [P] [US5] Create a standalone branded, base-aware not-found document in `public/404.html` that links back to the home route without server-side scripts or rewrites.
+- [X] T020 [P] [US5] Create build-and-test CI in `.github/workflows/deploy.yml` for pushes to `main` using a supported Node LTS and pinned Bun; pass `actions/configure-pages` `base_path` as `PAGES_BASE_PATH`, run `bun ci`, `bun run check`, `bun run test`, and `bun run test:e2e`, build and upload the client artifact, and verify the output. Give this job only `contents: read` and the `pages: read` permission needed for `base_path`. This early workflow MUST NOT contain or invoke a production Pages deploy job; document the build-only stage in `specs/001-personal-portfolio-site/quickstart.md`.
 
 **Checkpoint**: The static artifact and build CI can validate the five scaffolded routes independently. Production deployment remains disabled until content stories US1–US4, content review, usability review, and release checks are complete.
 
@@ -112,15 +112,15 @@ description: "Implementation task list for Roberto Asino Personal Portfolio Webs
 
 ### Tests for User Story 2
 
-- [ ] T021 [P] [US2] Add timeline acceptance coverage in `tests/e2e/experience.spec.ts` for the supplied résumé order of concurrent Present roles, completed roles newest first, dates/company/technology/achievement content, and the initially collapsed then expandable 2010–2012 group; confirm the relevant assertions fail before implementation.
-- [ ] T022 [P] [US2] Add skills acceptance coverage in `tests/e2e/skills.spec.ts` for all seven category labels, a visible years indicator for every skill with a verified duration, text-only treatment without inferred years for durationless skills, and the AI & Agentic Engineering panel; confirm the relevant assertions fail before implementation.
+- [X] T021 [P] [US2] Add timeline acceptance coverage in `tests/e2e/experience.spec.ts` for the supplied résumé order of concurrent Present roles, completed roles newest first, dates/company/technology/achievement content, and the initially collapsed then expandable 2010–2012 group; confirm the relevant assertions fail before implementation.
+- [X] T022 [P] [US2] Add skills acceptance coverage in `tests/e2e/skills.spec.ts` for all seven category labels, a visible years indicator for every skill with a verified duration, text-only treatment without inferred years for durationless skills, and the AI & Agentic Engineering panel; confirm the relevant assertions fail before implementation.
 
 ### Implementation for User Story 2
 
-- [ ] T023 [P] [US2] Implement the timeline in `src/components/experience-timeline.tsx`, ordering concurrent Present roles by supplied résumé order and completed roles newest first, and initially collapsing the 2010–2012 group; use verified Experience Role records from `src/data/resume.ts`.
-- [ ] T024 [P] [US2] Implement category headings, skill rows, and years-of-experience indicators only for source-verified durations in `src/components/skill-category.tsx`; render durationless skills as text-only, using the seven validated categories in `src/data/resume.ts`.
-- [ ] T025 [P] [US2] Compose `/experience` in `src/routes/experience.tsx` with `src/components/experience-timeline.tsx` and its unique title, description, and social-sharing metadata.
-- [ ] T026 [P] [US2] Compose `/skills` in `src/routes/skills.tsx` with `src/components/skill-category.tsx`, the separate AI & Agentic Engineering panel, and its unique title, description, and social-sharing metadata.
+- [X] T023 [P] [US2] Implement the timeline in `src/components/experience-timeline.tsx`, ordering concurrent Present roles by supplied résumé order and completed roles newest first, and initially collapsing the 2010–2012 group; use verified Experience Role records from `src/data/resume.ts`.
+- [X] T024 [P] [US2] Implement category headings, skill rows, and years-of-experience indicators only for source-verified durations in `src/components/skill-category.tsx`; render durationless skills as text-only, using the seven validated categories in `src/data/resume.ts`.
+- [X] T025 [P] [US2] Compose `/experience` in `src/routes/experience.tsx` with `src/components/experience-timeline.tsx` and its unique title, description, and social-sharing metadata.
+- [X] T026 [P] [US2] Compose `/skills` in `src/routes/skills.tsx` with `src/components/skill-category.tsx`, the separate AI & Agentic Engineering panel, and its unique title, description, and social-sharing metadata.
 
 **Checkpoint**: The experience and skills routes are independently usable and can be developed in parallel after their shared content model is complete.
 

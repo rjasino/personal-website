@@ -1,0 +1,67 @@
+name: Build and test portfolio
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: read
+
+jobs:
+  build:
+    name: Build and verify static site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903 # v6.0.0
+        with:
+          node-version: 26
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: 1.4.4
+
+      - name: Configure GitHub Pages base path
+        id: pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Install locked dependencies
+        run: bun ci
+
+      - name: Install Playwright Chromium
+        run: bunx playwright install --with-deps chromium
+
+      - name: Type check
+        run: bun run check
+
+      - name: Unit tests
+        run: bun run test
+
+      - name: End-to-end tests
+        run: bun run test:e2e
+
+      - name: Build static site
+        run: bun run build
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+
+      - name: Verify Pages artifact
+        shell: bash
+        run: |
+          test -f dist/client/index.html
+          test -f dist/client/404.html
+          test -f dist/client/experience/index.html
+          test -f dist/client/skills/index.html
+          test -f dist/client/agentic/index.html
+          test -f dist/client/contact/index.html
+
+      - name: Upload static artifact (build only; no deployment)
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: dist/client

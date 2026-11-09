@@ -32,10 +32,10 @@ export interface ExperienceRole {
       title: string
       company: string
       startDate: string
-          endDate: string
-          dateLabel: string
-          technologies: string[]
-          achievements: string[]
+      endDate: string
+      dateLabel: string
+      technologies: string[]
+      achievements: string[]
     }>
   }
 }
@@ -113,7 +113,7 @@ export const experiences: ExperienceRole[] = [
   {
     id: 'full-scale-senior-full-stack-developer',
     title: 'Senior Full Stack Developer',
-    company: 'Full Scale Teams PH',
+    company: 'Full Scale Teams PH (offshore engineering for US-based clients)',
     startDate: '2024-07',
     dateLabel: 'July 2024 – Present',
     current: true,

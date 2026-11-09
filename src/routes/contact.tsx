@@ -1,6 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { pageMetadata } from '@/data/resume'
+import { contactMethods } from '@/data/resume'
+import { ContactCard } from '@/components/contact-card'
 
 export const Route = createFileRoute('/contact')({
   head: () => ({
@@ -20,9 +22,17 @@ export const Route = createFileRoute('/contact')({
 
 function ContactPage() {
   return (
-    <section className="route-stub" aria-labelledby="page-title">
-      <p className="eyebrow">05 / CONTACT</p>
-      <h1 id="page-title">Let’s build something.</h1>
+    <section aria-labelledby="page-title" className="contact-page">
+      <div className="page-intro">
+        <p className="eyebrow">05 / CONTACT</p>
+        <h1 id="page-title">Let’s build something.</h1>
+        <p>Reach me through any of these verified public contact and social links.</p>
+      </div>
+      <div aria-label="Contact methods" className="contact-grid">
+        {contactMethods.map((method) => (
+          <ContactCard key={method.kind} method={method} />
+        ))}
+      </div>
     </section>
   )
 }

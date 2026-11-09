@@ -12,6 +12,37 @@ const themeBootstrap = `(() => {
       document.documentElement.dataset.theme = saved;
     }
   } catch {}
+  const syncThemeControl = () => {
+    document.querySelectorAll('[data-theme-toggle]').forEach((toggle) => {
+      toggle.setAttribute('aria-pressed', String(document.documentElement.dataset.theme === 'light'));
+    });
+  };
+  document.addEventListener('DOMContentLoaded', syncThemeControl, { once: true });
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const toggle = target.closest('[data-theme-toggle]');
+    if (toggle) {
+      const next = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+      document.documentElement.dataset.theme = next;
+      toggle.setAttribute('aria-pressed', String(next === 'light'));
+      try { window.localStorage.setItem('portfolio-theme', next); } catch {}
+      return;
+    }
+    const copyButton = target.closest('[data-copy-value]');
+    if (!copyButton) return;
+    const value = copyButton.getAttribute('data-copy-value') || '';
+    const status = copyButton.closest('[data-contact-card]')?.querySelector('[data-copy-status]');
+    Promise.resolve().then(async () => {
+      try {
+        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+        await navigator.clipboard.writeText(value);
+        if (status) status.textContent = 'Copied ' + value + ' to clipboard.';
+      } catch {
+        if (status) status.textContent = 'Clipboard unavailable. Select and copy the value manually.';
+      }
+    });
+  });
 })();`
 
 export const Route = createRootRoute({
@@ -41,7 +72,7 @@ export const Route = createRootRoute({
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html data-theme="dark" lang="en">
+    <html data-theme="dark" lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootstrap }} />
         <HeadContent />

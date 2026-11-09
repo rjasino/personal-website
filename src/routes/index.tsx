@@ -1,6 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { pageMetadata } from '@/data/resume'
+import { HomeHero } from '@/components/home-hero'
+import { HomeHighlights } from '@/components/home-highlights'
 
 export const Route = createFileRoute('/')({
   head: () => ({
@@ -20,9 +22,9 @@ export const Route = createFileRoute('/')({
 
 function HomePage() {
   return (
-    <section className="route-stub" aria-labelledby="page-title">
-      <p className="eyebrow">00 / HOME</p>
-      <h1 id="page-title">Roberto Jacinto Asino</h1>
-    </section>
+    <>
+      <HomeHero />
+      <HomeHighlights />
+    </>
   )
 }
