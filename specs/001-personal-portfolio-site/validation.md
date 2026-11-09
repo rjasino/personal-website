@@ -1,6 +1,6 @@
 # Validation Status
 
-**Status:** The portfolio passes automated validation and the owner reports that at least 9 of 10 first-time reviewers met each SC-002 and SC-003 criterion. The production GitHub Pages workflow now builds and tests before deploying `dist/client` from `main`. The workflow fix has not yet been pushed and verified on the live site. The owner confirmed that ASD has exactly three layers—AWD → SDD → APA—and the canonical data and `/agentic` page reflect that source.
+**Status:** The portfolio passes automated validation and the owner reports that at least 9 of 10 first-time reviewers met each SC-002 and SC-003 criterion. The production GitHub Pages workflow builds and tests before deploying `dist/client` from `main`. Deployment run #3 succeeded, and all five public routes plus the branded 404 were verified. A subsequent `main` update is being used to verify automatic redeployment. The owner confirmed that ASD has exactly three layers—AWD → SDD → APA—and the canonical data and `/agentic` page reflect that source.
 
 ## Automated checks
 
@@ -14,7 +14,7 @@
 | Project static build (`PAGES_BASE_PATH=/agentic-developer-ph-web`) | PASS | Five route entries, three-layer ASD prerender content, prefixed asset URLs, and base-aware 404 home link verified. |
 | Workflow review | PASS | Build-and-deploy workflow; build job has `contents: read` and `pages: read`; deploy job alone has `pages: write` and `id-token: write`; actions are pinned to full SHAs; deployments are serialized. |
 
-The usability result is owner-reported; no individual participant data is recorded here. The live Pages deployment and all five public route checks remain pending after the workflow change is pushed to `main`.
+The usability result is owner-reported; no individual participant data is recorded here. The live Pages deployment was verified at `https://rjasino.github.io/personal-website/` and its `/experience/`, `/skills/`, `/agentic/`, and `/contact/` routes. An unknown route returned the branded 404 page.
 
 ## ASD scope update
 
@@ -32,4 +32,4 @@ The owner reports that the first-time-reviewer study was conducted and both targ
 
 ## Release gate
 
-T031–T033 are complete. T034's workflow implementation is in place; keep T034 open until the workflow is pushed to `main` and the five public routes, 404 response, and a subsequent main-branch deployment are verified.
+T031–T034 are complete. The first production deployment succeeded; the task-status update is the subsequent `main` push used to verify that later updates also deploy automatically.
