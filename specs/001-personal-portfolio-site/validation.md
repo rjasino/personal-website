@@ -1,6 +1,6 @@
 # Validation Status
 
-**Status:** The portfolio passes automated validation and the owner reports that at least 9 of 10 first-time reviewers met each SC-002 and SC-003 criterion. The production GitHub Pages workflow builds and tests before deploying `dist/client` from `main`. Deployment run #3 succeeded, and all five public routes plus the branded 404 were verified. A subsequent `main` update is being used to verify automatic redeployment. The owner confirmed that ASD has exactly three layers—AWD → SDD → APA—and the canonical data and `/agentic` page reflect that source.
+**Status:** The portfolio passes automated validation and the owner reports that at least 9 of 10 first-time reviewers met each SC-002 and SC-003 criterion. The production GitHub Pages workflow builds and tests before deploying `dist/client` from `main`. Deployment run #3 succeeded, and all five public routes plus the branded 404 were verified. A subsequent `main` update also completed its build-and-deploy workflow successfully, confirming automatic redeployment. The owner confirmed that ASD has exactly three layers—AWD → SDD → APA—and the canonical data and `/agentic` page reflect that source.
 
 ## Automated checks
 
